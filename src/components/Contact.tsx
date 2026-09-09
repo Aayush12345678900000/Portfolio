@@ -12,7 +12,7 @@ function Contact() {
                 <a href="https://www.linkedin.com/in/aayush-jadoun-69717025b" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors text-lg">
                     🔗 LinkedIn Profile
                 </a>
-                <a href="https://github.com/Aayush26-27" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors text-lg">
+                <a href="https://github.com/Aayush12345678900000" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors text-lg">
                     💻 GitHub Profile
                 </a>
             </div>
