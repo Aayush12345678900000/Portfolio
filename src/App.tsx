@@ -10,16 +10,30 @@ function MyApp(){
   return(
     <>
     <Navbar />
-    <Hero 
-    name="Aayush Jadoun"
-    tagline="Computer Vision • Machine Learning • Algorithm Optimization"
-    description="AI Engineering student building specialized machine learning models and robust software systems. From developing pathology classification models for agricultural disease detection to creating standalone desktop management applications, I focus on designing optimized, scalable solutions that solve real-world problems."
-    />
-    <Contactform />
-    <About />
-    <Skills />
-    <Projects />
-    <Contact />
+    <section id="home">
+      <Hero 
+      name="Aayush Jadoun"
+      tagline="Computer Vision • Machine Learning • Algorithm Optimization"
+      description="AI Engineering student building specialized machine learning models and robust software systems. From developing pathology classification models for agricultural disease detection to creating standalone desktop management applications, I focus on designing optimized, scalable solutions that solve real-world problems."
+      />
+    </section>
+    
+    <section id="about">
+      <About />
+    </section>
+    
+    <section id="skills">
+      <Skills />
+    </section>
+    
+    <section id="projects">
+      <Projects />
+    </section>
+    
+    <section id="contact">
+      <Contactform />
+      <Contact />
+    </section>
     </>
   )
 }
