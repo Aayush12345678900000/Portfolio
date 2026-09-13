@@ -1,41 +1,44 @@
 import { useState } from "react";
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   return (
-    <nav className="flex flex-col md:flex-row bg-gray-800 justify-between items-center p-4 sticky top-0 z-50 shadow-md">
-      <a href="#home" className="text-white text-xl font-medium cursor-pointer mb-2 md:mb-0">
-        Aayush Portfolio
-      </a>
-      {/* Hamburger for mobile */}
-      <button
-        className="md:hidden text-fuchsia-400 focus:outline-none"
-        onClick={() => setOpen(!open)}
-        aria-label="Toggle navigation"
-      >
-        {open ? "✕" : "☰"}
-      </button>
-      <div
-        className={`flex flex-col md:flex-row gap-4 px-8 ${open ? "flex" : "hidden md:flex"}`}
-      >
-        <a href="#home" className="hover:text-fuchsia-300 transition-colors cursor-pointer">
-          Home
+    <header className="nav">
+      <div className="wrap nav-inner">
+        <a href="#home" className="brand" onClick={handleLinkClick}>
+          <span className="brand-mark">AJ</span>
+          Aayush Jadoun
         </a>
-        <a href="#about" className="hover:text-fuchsia-300 transition-colors cursor-pointer">
-          About
-        </a>
-        <a href="#skills" className="hover:text-fuchsia-300 transition-colors cursor-pointer">
-          Skills
-        </a>
-        <a href="#projects" className="hover:text-fuchsia-300 transition-colors cursor-pointer">
-          Projects
-        </a>
-        <a href="#contact" className="hover:text-fuchsia-300 transition-colors cursor-pointer">
-          Contact
-        </a>
+        <nav className={`links ${isOpen ? "open" : ""}`} id="navLinks">
+          <a href="#home" onClick={handleLinkClick}>Home</a>
+          <a href="#about" onClick={handleLinkClick}>About</a>
+          <a href="#skills" onClick={handleLinkClick}>Skills</a>
+          <a href="#projects" onClick={handleLinkClick}>Projects</a>
+          <a href="#contact" onClick={handleLinkClick}>Contact</a>
+        </nav>
+        <button
+          className="menu-btn"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+        >
+          {isOpen ? (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 6l12 12M6 18L18 6" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          )}
+        </button>
       </div>
-    </nav>
+    </header>
   );
 }
 

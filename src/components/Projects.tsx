@@ -1,45 +1,59 @@
- const projects = [
+const projectsData = [
   {
+    tag: "VISION",
     title: "AI Plant Disease Detection",
-    description: "Detects plant diseases from leaf images."
+    description: "A pathology classification model that detects plant diseases directly from leaf images, built to support earlier, more reliable crop-health decisions.",
+    meta: "ML · Image Classification"
   },
   {
-    title: "Portfolio Website",
-    description: "Personal portfolio built with React."
-  },
-  {
+    tag: "DESKTOP",
     title: "Task Manager",
-    description: "Desktop application for task management."
+    description: "A standalone desktop application for managing day-to-day tasks — built to explore robust, offline-first application design.",
+    meta: "Desktop App"
   },
   {
+    tag: "API",
     title: "Weather App",
-    description: "Shows weather using an API."
+    description: "A lightweight app that surfaces live weather data through a third-party API, focused on a fast, no-friction interface.",
+    meta: "Web · REST API"
+  },
+  {
+    tag: "WEB",
+    title: "Portfolio Website",
+    description: "This site — a personal portfolio built with React, TypeScript and Tailwind CSS, redesigned around the visual language of computer vision tooling.",
+    meta: "React · TypeScript"
   }
-]
+];
 
-import {useState} from "react"
- function Projects(){
-    const [show, setShow] = useState(false);
-    return(
-        
-        <div className="bg-gray-950 flex justify-center items-center flex-col gap-4 p-8">
-            <h2 className="text-3xl text-white text-center mb-6 font-bold">Projects</h2>
-            <div className="grid grid-cols-2 gap-4 mx-auto max-w-3xl p-8">
-              {
-                 (show ? projects : projects.slice(0, 2)).map((project, index)=> (
-                    <div key={index} className="flex flex-col gap-3 bg-gray-700 p-4 rounded-lg">
-                        <h3 className="text-white"> Project {index + 1}</h3>
-                        <h2 className="text-white">{project.title}</h2>
-                        <p className="text-gray-300">{project.description}</p>
-                    </div>
-                ))
-              }   
-            </div>
-            <button className="bg-blue-400 text-yellow-200 rounded-lg p-2" onClick={()=>setShow(!show)}>{
-                show ? "View Less" : "View More"
-            }</button>
+function Projects() {
+  return (
+    <section id="projects" className="projects-section">
+      <div className="wrap">
+        <div className="section-head reveal">
+          <div>
+            <span className="idx mono" style={{ color: "var(--accent)" }}>03 — Selected work</span>
+            <h2>Projects</h2>
+          </div>
+          <p className="desc">
+            A working record of what I've built, from CV models to everyday tools.
+          </p>
         </div>
-    )
- }
 
- export default Projects;
+        <div className="case-list reveal">
+          {projectsData.map((project, index) => (
+            <div key={index} className="case-row">
+              <span className="case-tag">{project.tag}</span>
+              <div className="case-body">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+              <span className="case-meta">{project.meta}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Projects;
